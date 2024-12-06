@@ -8,19 +8,37 @@ $products = [
         "name" => "Full Package",
         "description" => "High-efficiency and high-performance custom cooling loops, pump, and liquid nitrogen",
         "price" => 1599.99,
-        "image" => "product1.jpg"
+        "image" => "FullPackage.jpeg"
     ],
     [
-        "name" => "Cooler B2",
-        "description" => "Compact and powerful for small rooms.",
-        "price" => 179.99,
-        "image" => "product2.jpg"
+        "name" => "Loops Only",
+        "description" => "Handmade custom cooling loops for any PC!",
+        "price" => 699.99,
+        "image" => "loops.jpg"
     ],
     [
-        "name" => "Cooler C3",
+        "name" => "Tank & Pump",
         "description" => "Energy-efficient model for eco-conscious customers.",
         "price" => 229.99,
-        "image" => "product3.jpg"
+        "image" => "pump.png"
+    ],
+    [
+        "name" => "Cooler X1",
+        "description" => "High-performance cooling system for gaming PCs.",
+        "price" => 499.99,
+        "image" => "cooler_x1.jpg" // Add the correct image path
+    ],
+    [
+        "name" => "Premium Loop",
+        "description" => "Complete premium loop for high-end systems.",
+        "price" => 899.99,
+        "image" => "premium_loop.jpg" // Add the correct image path
+    ],
+    [
+        "name" => "Compact Cooler",
+        "description" => "Space-saving design with excellent cooling performance.",
+        "price" => 149.99,
+        "image" => "compact_cooler.jpg" // Add the correct image path
     ]
 ];
 
@@ -60,15 +78,6 @@ if (isset($_GET['add_to_cart'])) {
 <body>
     <div class="header">
         <h1>EasyLiquidCool, Inc.</h1>
-        <!-- Cart Icon -->
-        <div class="cart-icon">
-            <a href="cart.php">
-                🛒
-                <span class="cart-count">
-                    <?php echo isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0; ?>
-                </span>
-            </a>
-        </div>
     </div>
 
     <nav class="navbar">
@@ -77,6 +86,14 @@ if (isset($_GET['add_to_cart'])) {
             <li><a href="products.php">Products</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li class="cart-icon">
+                <a href="cart.php">
+                    🛒
+                    <span class="cart-count">
+                        <?php echo isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0; ?>
+                    </span>
+                </a>
+            </li>
         </ul>
     </nav>
 

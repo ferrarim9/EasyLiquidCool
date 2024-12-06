@@ -8,6 +8,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    padding-top: 60px; /* Add some padding to prevent content from hiding behind the navbar */
 }
 
 /* Header Style */
@@ -31,16 +32,24 @@ body {
     background-color: #333;
     width: 100%;
     text-align: center;
+    display: flex;
+    justify-content: center; /* Center the navbar items */
+    align-items: center; /* Vertically center the navbar items */
+    height: 60px; /* Set a fixed height for the navbar */
 }
 
 .navbar ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: center; /* Center-align navbar items */
+    margin: 0;
+    align-items: center;
 }
 
 .navbar ul li {
-    display: inline-block;
     margin-right: 20px;
+    display: inline-block;
 }
 
 .navbar ul li:last-child {
@@ -57,6 +66,28 @@ body {
 .navbar ul li a:hover {
     background-color: #575757;
     border-radius: 4px;
+}
+
+.navbar ul li.cart-icon {
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.cart-count {
+    font-size: 16px;
+    margin-left: 5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 8px;
 }
 
 /* Search Form Style */
@@ -102,7 +133,8 @@ body {
 .product-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
+    gap: 20px; /* Adds space between items */
 }
 
 .product {
@@ -110,9 +142,12 @@ body {
     border: 1px solid #ddd;
     border-radius: 8px;
     width: 30%;
-    margin-bottom: 30px;
+    min-height: 400px; /* Ensure the product box has a consistent height */
     padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Spread out content, keeping button at bottom */
     text-align: center;
 }
 
@@ -130,6 +165,7 @@ body {
 .product p {
     font-size: 16px;
     color: #555;
+    flex-grow: 1; /* Allow this to take up remaining space */
 }
 
 .product .buy-button {
@@ -139,7 +175,8 @@ body {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
 }
 
 .product .buy-button:hover {
