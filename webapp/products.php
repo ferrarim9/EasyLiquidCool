@@ -1,68 +1,36 @@
 <?php
-// Start the session to track the cart
 session_start();
 
-// Product data
-$products = [
-    [
-        "name" => "Full Package",
-        "description" => "High-efficiency and high-performance custom cooling loops, pump, and liquid nitrogen",
-        "price" => 1599.99,
-        "image" => "FullPackage.jpeg"
-    ],
-    [
-        "name" => "Loops Only",
-        "description" => "Handmade custom cooling loops for any PC!",
-        "price" => 699.99,
-        "image" => "loops.jpg"
-    ],
-    [
-        "name" => "Tank & Pump",
-        "description" => "Energy-efficient model for eco-conscious customers.",
-        "price" => 229.99,
-        "image" => "pump.png"
-    ],
-    [
-        "name" => "Cooler X1",
-        "description" => "High-performance cooling system for gaming PCs.",
-        "price" => 499.99,
-        "image" => "cooler_x1.jpg" // Add the correct image path
-    ],
-    [
-        "name" => "Premium Loop",
-        "description" => "Complete premium loop for high-end systems.",
-        "price" => 899.99,
-        "image" => "premium_loop.jpg" // Add the correct image path
-    ],
-    [
-        "name" => "Compact Cooler",
-        "description" => "Space-saving design with excellent cooling performance.",
-        "price" => 149.99,
-        "image" => "compact_cooler.jpg" // Add the correct image path
-    ]
-];
+try {
+    // Connect to the database
+    $pdo = new PDO('mysql:host=sql1.njit.edu;dbname=mjf8', 'mjf8', 'Matty238209200!');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Fetch products from the database
+    $stmt = $pdo->query('SELECT * FROM elcproducts');
+    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
+}
 
 // Capture the search query from the URL
 $search_query = isset($_GET['search']) ? strtolower($_GET['search']) : '';
 
 // Filter products based on the search query
-$filtered_products = [];
-foreach ($products as $product) {
-    if (empty($search_query) || strpos(strtolower($product['name']), $search_query) !== false) {
-        $filtered_products[] = $product;
-    }
-}
+$filtered_products = array_filter($products, function ($product) use ($search_query) {
+    return empty($search_query) || strpos(strtolower($product['name']), $search_query) !== false;
+});
 
 // Handle adding items to the cart
 if (isset($_GET['add_to_cart'])) {
-    $product_id = $_GET['add_to_cart'];
+    $product_sku = $_GET['add_to_cart'];
 
-    // Ensure the product ID is valid
-    if (isset($products[$product_id])) {
-        $product = $products[$product_id];
-
-        // Add the product to the cart (stored in session)
-        $_SESSION['cart'][] = $product;
+    // Find the product by SKU and add to the cart
+    foreach ($products as $product) {
+        if ($product['online_sku'] === $product_sku) {
+            $_SESSION['cart'][] = $product;
+            break;
+        }
     }
 }
 ?>
@@ -111,13 +79,15 @@ if (isset($_GET['add_to_cart'])) {
             <?php if (empty($filtered_products)): ?>
                 <p>No products found.</p>
             <?php else: ?>
-                <?php foreach ($filtered_products as $index => $product): ?>
+                <?php foreach ($filtered_products as $product): ?>
                     <div class="product">
-                        <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
-                        <h3><?php echo $product['name']; ?></h3>
-                        <p><?php echo $product['description']; ?></p>
+                        <!-- Dynamically display product image -->
+                        <img src="<?php echo htmlspecialchars($product['image'] ?? 'FullPackage.jpeg'); ?>" 
+                             alt="<?php echo htmlspecialchars($product['name']); ?>">
+                        <h3><?php echo htmlspecialchars($product['name']); ?></h3>
+                        <p><?php echo htmlspecialchars($product['description']); ?></p>
                         <p><strong>$<?php echo number_format($product['price'], 2); ?></strong></p>
-                        <a href="products.php?add_to_cart=<?php echo $index; ?>" class="buy-button">Buy Now</a>
+                        <a href="products.php?add_to_cart=<?php echo htmlspecialchars($product['online_sku']); ?>" class="buy-button">Buy Now</a>
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>
