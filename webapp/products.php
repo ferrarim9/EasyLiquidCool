@@ -8,19 +8,19 @@ $products = [
         "name" => "Full Package",
         "description" => "High-efficiency and high-performance custom cooling loops, pump, and liquid nitrogen",
         "price" => 1599.99,
-        "image" => "FullPackage.jpeg"
+        "image" => "img/FullPackage.jpeg"
     ],
     [
         "name" => "Loops Only",
         "description" => "Handmade custom cooling loops for any PC!",
         "price" => 699.99,
-        "image" => "loops.jpg"
+        "image" => "img/Loops.jpg"
     ],
     [
         "name" => "Tank & Pump",
         "description" => "Energy-efficient model for eco-conscious customers.",
         "price" => 229.99,
-        "image" => "pump.png"
+        "image" => "img/Pump.png"
     ],
     [
         "name" => "Cooler X1",
@@ -73,7 +73,7 @@ if (isset($_GET['add_to_cart'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products - EasyLiquidCool, Inc.</title>
-    <link rel="stylesheet" href="products.css">
+    <link rel="stylesheet" href="styles/products.scss">
 </head>
 <body>
     <div class="header">
