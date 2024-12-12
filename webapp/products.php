@@ -6,15 +6,15 @@ session_start();
 $products = [
     [
         "name" => "Full Package",
-        "description" => "High-efficiency and high-performance custom cooling loops, pump, and liquid nitrogen",
+        "description" => "Our Flagship Product. Experience next-level cooling power with our custom cooling loops and liquid nitrogen pump. ",
         "price" => 1599.99,
-        "image" => "img/FullPackage.jpeg"
+        "image" => "img/FullPackage.png"
     ],
     [
-        "name" => "Loops Only",
-        "description" => "Handmade custom cooling loops for any PC!",
+        "name" => "Half-Full Package",
+        "description" => "Our custom cooling loops. Experience 'built to order, made to last' quality. Perfect fit guaranteed.",
         "price" => 699.99,
-        "image" => "img/Loops.jpg"
+        "image" => "img/Loops.png"
     ],
     [
         "name" => "Tank & Pump",
