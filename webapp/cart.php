@@ -228,9 +228,9 @@ foreach ($_SESSION['cart'] as $item) {
                 <button type="submit" name="clear_cart" class="clear-cart-button">Clear Cart</button>
             </form>
 
-            <p><a href="products.php">Continue Shopping</a></p>
+            <p><a href="https://www.paypal.com">Checkout</a></p>
 
-            <!-- Footer with Total Price -->
+            <!-- Footer with Total Price -->e
             <div class="cart-footer">
                 <p><strong>Total Price: $<?php echo number_format($total_price, 2); ?></strong></p>
             </div>
