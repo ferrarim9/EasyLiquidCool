@@ -1,4 +1,3 @@
-/* Global Reset */
 * {
     margin: 0;
     padding: 0;
@@ -69,5 +68,43 @@
         align-items: center;
       }
     }
+  }
+  
+  .box {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px; /* Reduce the maximum width to make the box smaller */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+    h2 {
+      font-size: 32px; /* Increase the heading font size */
+      color: #333;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  
+    p {
+      font-size: 18px; /* Increase the paragraph font size */
+      line-height: 1.8; /* Adjust line spacing for better readability */
+      color: #555;
+      margin-bottom: 20px;
+  
+      strong {
+        color: #000;
+      }
+    }
+  }
+  
+  
+  .about-image {
+    display: block;
+    max-width: 400px;
+    height: auto;
+    margin: 0 auto 20px auto; /* Center the image and add spacing */
+    border-radius: 8px; /* Optional: Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
   }
   
