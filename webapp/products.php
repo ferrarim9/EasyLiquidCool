@@ -83,9 +83,9 @@ if (isset($_GET['add_to_cart'])) {
     <nav class="navbar">
         <ul>
             <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="products.php">Products</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="contact.html">Contact</a></li>
             <li class="cart-icon">
                 <a href="cart.php">
                     🛒
