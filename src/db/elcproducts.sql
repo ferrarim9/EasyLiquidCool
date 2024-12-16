@@ -27,4 +27,16 @@ UPDATE elcproducts
 SET image = 'Pump.png'
 WHERE online_sku = '002';
 
+UPDATE elcproducts
+SET online_sku = '004'
+WHERE name = "Loops Only";
+
+UPDATE elcproducts
+SET online_sku = '003'
+WHERE name = 'Tank & Pump';
+
+UPDATE elcproducts
+SET online_sku = '002'
+WHERE online_sku = '004';
+
 SELECT * from elcproducts
