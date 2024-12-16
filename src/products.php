@@ -1,8 +1,7 @@
 <?php
-// Start the session to track the cart
+
 session_start();
 
-// Product data
 $products = [
     [
         "name" => "Full Package",
@@ -24,10 +23,8 @@ $products = [
     ],
 ];
 
-// Capture the search query from the URL
 $search_query = isset($_GET['search']) ? strtolower($_GET['search']) : '';
 
-// Filter products based on the search query
 $filtered_products = [];
 foreach ($products as $product) {
     if (empty($search_query) || strpos(strtolower($product['name']), $search_query) !== false) {
@@ -35,15 +32,12 @@ foreach ($products as $product) {
     }
 }
 
-// Handle adding items to the cart
 if (isset($_GET['add_to_cart'])) {
     $product_id = $_GET['add_to_cart'];
 
-    // Ensure the product ID is valid
     if (isset($products[$product_id])) {
         $product = $products[$product_id];
 
-        // Add the product to the cart (stored in session)
         $_SESSION['cart'][] = $product;
     }
 }
