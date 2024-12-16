@@ -76,19 +76,19 @@
     border-radius: 8px;
     padding: 20px;
     margin: 20px auto;
-    max-width: 600px; /* Reduce the maximum width to make the box smaller */
+    max-width: 600px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   
     h2 {
-      font-size: 32px; /* Increase the heading font size */
+      font-size: 32px;
       color: #333;
       margin-bottom: 20px;
       text-align: center;
     }
   
     p {
-      font-size: 18px; /* Increase the paragraph font size */
-      line-height: 1.8; /* Adjust line spacing for better readability */
+      font-size: 18px;
+      line-height: 1.8;
       color: #555;
       margin-bottom: 20px;
   
@@ -103,8 +103,8 @@
     display: block;
     max-width: 400px;
     height: auto;
-    margin: 0 auto 20px auto; /* Center the image and add spacing */
-    border-radius: 8px; /* Optional: Rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+    margin: 0 auto 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
