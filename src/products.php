@@ -12,34 +12,16 @@ $products = [
     ],
     [
         "name" => "Half-Full Package",
-        "description" => "Our custom cooling loops. Experience 'built to order, made to last' quality. Perfect fit guaranteed.",
+        "description" => "Custom cooling loops built for your PC. Experience 'built to order, made to last' quality. Perfect fit guaranteed.",
         "price" => 699.99,
         "image" => "img/Loops.png"
     ],
     [
         "name" => "Tank & Pump",
-        "description" => "Energy-efficient model for eco-conscious customers.",
+        "description" => "Just the tank & pump. Option for customers who already use liquid cooling. Built to fit your PC.",
         "price" => 229.99,
         "image" => "img/Pump.png"
     ],
-    [
-        "name" => "Cooler X1",
-        "description" => "High-performance cooling system for gaming PCs.",
-        "price" => 499.99,
-        "image" => "cooler_x1.jpg" // Add the correct image path
-    ],
-    [
-        "name" => "Premium Loop",
-        "description" => "Complete premium loop for high-end systems.",
-        "price" => 899.99,
-        "image" => "premium_loop.jpg" // Add the correct image path
-    ],
-    [
-        "name" => "Compact Cooler",
-        "description" => "Space-saving design with excellent cooling performance.",
-        "price" => 149.99,
-        "image" => "compact_cooler.jpg" // Add the correct image path
-    ]
 ];
 
 // Capture the search query from the URL
@@ -72,7 +54,7 @@ if (isset($_GET['add_to_cart'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - EasyLiquidCool, Inc.</title>
+    <title>EasyLiquidCool, Inc.</title>
     <link rel="stylesheet" href="styles/products.scss">
 </head>
 <body>

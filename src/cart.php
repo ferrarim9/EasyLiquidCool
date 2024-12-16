@@ -1,15 +1,13 @@
 <?php
-// Start the session to track the cart
+
 session_start();
 
-// Handle clearing the cart
 if (isset($_POST['clear_cart'])) {
     $_SESSION['cart'] = [];
-    header("Location: cart.php"); // Redirect to the cart page after clearing
+    header("Location: cart.php");
     exit;
 }
 
-// Calculate the total price of the cart
 $total_price = 0;
 foreach ($_SESSION['cart'] as $item) {
     $total_price += $item['price'];
@@ -22,10 +20,9 @@ foreach ($_SESSION['cart'] as $item) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Cart - EasyLiquidCool, Inc.</title>
+    <title>EasyLiquidCool, Inc.</title>
     <link rel="stylesheet" href="products.css">
     <style>
-        /* Global Reset */
         * {
             margin: 0;
             padding: 0;
@@ -37,7 +34,6 @@ foreach ($_SESSION['cart'] as $item) {
             background-color: #f4f4f4;
         }
 
-        /* Header Style */
         .header {
             background-color: #808080;
             width: 468px;
@@ -53,7 +49,6 @@ foreach ($_SESSION['cart'] as $item) {
             font-size: 24px;
         }
 
-        /* Navbar Style */
         .navbar {
             background-color: #333;
             width: 100%;
@@ -86,7 +81,6 @@ foreach ($_SESSION['cart'] as $item) {
             border-radius: 4px;
         }
 
-        /* Cart Content */
         .content {
             margin: 40px auto;
             width: 80%;
@@ -99,7 +93,6 @@ foreach ($_SESSION['cart'] as $item) {
             margin-bottom: 20px;
         }
 
-        /* Cart List */
         .cart-list {
             display: flex;
             flex-wrap: wrap;
@@ -134,9 +127,8 @@ foreach ($_SESSION['cart'] as $item) {
             color: #555;
         }
 
-        /* Clear Cart Button */
         .clear-cart-button {
-            background-color: #333; /* Matching the gray color */
+            background-color: #333;
             color: white;
             padding: 10px 20px;
             border: none;
@@ -151,12 +143,11 @@ foreach ($_SESSION['cart'] as $item) {
         }
 
         .clear-cart-button:hover {
-            background-color: #575757; /* Slightly lighter gray on hover */
+            background-color: #575757;
         }
 
-        /* Continue Shopping Link */
         a {
-            background-color: #333; /* Gray background */
+            background-color: #333;
             color: white;
             padding: 10px 20px;
             border-radius: 4px;
@@ -170,10 +161,9 @@ foreach ($_SESSION['cart'] as $item) {
         }
 
         a:hover {
-            background-color: #575757; /* Slightly lighter gray on hover */
+            background-color: #575757;
         }
 
-        /* Footer Style */
         .cart-footer {
             margin-top: 20px;
             font-size: 18px;
@@ -181,14 +171,11 @@ foreach ($_SESSION['cart'] as $item) {
         }
     </style>
 </head>
-
 <body>
-    <!-- Header with Cart Icon -->
     <div class="header">
         <h1>EasyLiquidCool, Inc.</h1>
     </div>
 
-    <!-- Navbar -->
     <nav class="navbar">
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -198,9 +185,7 @@ foreach ($_SESSION['cart'] as $item) {
         </ul>
     </nav>
 
-    <!-- Cart Content -->
     <div class="content">
-        <!-- Display Cart Title -->
         <h2>
             <?php
             if (empty($_SESSION['cart'])) {
@@ -223,14 +208,12 @@ foreach ($_SESSION['cart'] as $item) {
                 <?php endforeach; ?>
             </div>
 
-            <!-- Clear Cart Button -->
             <form method="POST" action="cart.php">
                 <button type="submit" name="clear_cart" class="clear-cart-button">Clear Cart</button>
             </form>
 
             <p><a href="https://www.paypal.com">Checkout</a></p>
 
-            <!-- Footer with Total Price -->e
             <div class="cart-footer">
                 <p><strong>Total Price: $<?php echo number_format($total_price, 2); ?></strong></p>
             </div>
